@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+     .language-select {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #5d10105c;
+      z-index: 1;
+    }
+
+    .language-select select {
+      padding: 5px;
+      background-color: #fbfbfb;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .language-select select:hover {
+      background-color: #979797;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffecfe;
+      background: linear-gradient(45deg, #6d1212 50%, #e96e6e 100%);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(243, 102, 102, 0.59);
+  border-radius: 10%;
+  padding: 10px;
+  width: 500px;
+  height: 500px;
+  }
+    .circle img {
+      width: 500px;
+      height: 600px;
+      border-radius: 50%;
+    }
+
+    .circle-text {
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+      animation: marquee 3s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(8%);
+      }
+
+      100% {
+        transform: translateX(-8%);
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .taskbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      z-index: 1;
+    }
+
+    .taskbar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .taskbar li {
+      margin-bottom: 10px;
+    }
+
+    .taskbar a {
+      display: block;
+      padding: 10px;
+      background-color: #d10105c3;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .taskbar a:hover {
+      background-color: #4e4e4e;
+    }
+
+    .section {
+      padding: 50px;
+      margin-top: 60px;
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="taskbar">
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#social">Social Media</a></li>
+    </ul>
+  </div>
+
+  <div class="language-select">
+    <select data-bahasa="pilih" onchange="changeLanguage(this.value)">
+      <option value="english">English</option>
+      <option value="indonesia">Indonesia</option>
+      <option value="japanese">Jepang</option>
+      <option value="javanese">Jawa</option>
+    </select>
+  </div>
+
+  <script>
+    function changeLanguage(language) {
+      if (language === 'english') {
+        document.getElementById('circle-name').innerHTML = 'Arya Zahran Ziduhu';
+        document.getElementById('about-title').innerHTML = 'About Me';
+        document.getElementById('about-content').innerHTML = `
+          <p>I am a passionate entrepreneur and proud owner of a racing workshop. With years of experience in the automotive industry, I have dedicated myself to providing the best services and performance enhancements for racing enthusiasts. At my workshop, I specialize in tuning and optimizing race motorcycles to achieve maximum performance on the track.</p>
+          <p>My love for high-speed machines started at a young age and drove me to pursue my dreams in the automotive world. I have a deep understanding of race motorcycle mechanics and utilize cutting-edge technology and techniques to deliver outstanding results.</p>
+          <p>Customer satisfaction is my top priority, and I strive to exceed expectations by providing personalized solutions tailored to the needs of each racing team.</p>
+        `;
+        document.getElementById('skills-title').innerHTML = 'Skills';
+        document.getElementById('skills-content').innerHTML = `
+          <ul>
+            <li>Engine Tuning</li>
+            <li>Expertise in assembling, repairing, and maintaining racing motorcycle components</li>
+            <li>Ability to analyze and detect issues in engines and motorcycle components using diagnostic tools and visual observation</li>
+            <li>Understanding of Motorcycle Electronics</li>
+          </ul>
+        `;
+        document.getElementById('content-title').innerHTML = 'Content';
+        document.getElementById('social-title').innerHTML = 'Social Media';
+      } else if (language === 'indonesia') {
+        document.getElementById('circle-name').innerHTML = 'Arya Zahran Ziduhu';
+        document.getElementById('about-title').innerHTML = 'Tentang Saya';
+        document.getElementById('about-content').innerHTML = `
+          <p>Saya adalah seorang pengusaha yang bersemangat dan pemilik bangga dari sebuah bengkel balap. Dengan pengalaman bertahun-tahun di industri otomotif, saya telah mendedikasikan diri untuk menyediakan layanan terbaik dan peningkatan performa bagi para penggemar balap. Di bengkel saya, saya mengkhususkan diri dalam penyetelan dan optimalisasi motor balap untuk mencapai performa maksimal di lintasan.</p>
+          <p>Cinta saya pada mesin-mesin berkecepatan tinggi dimulai sejak usia muda dan mendorong saya untuk mengejar impian saya di dunia otomotif. Saya memiliki pemahaman yang mendalam tentang mekanika motor balap dan menggunakan teknologi dan teknik terkini untuk memberikan hasil yang luar biasa.</p>
+          <p>Kepuasan pelanggan adalah prioritas utama bagi saya, dan saya berusaha melebihi harapan dengan memberikan solusi personalisasi yang disesuaikan dengan kebutuhan tim balap masing-masing.</p>
+        `;
+        document.getElementById('skills-title').innerHTML = 'Keterampilan';
+        document.getElementById('skills-content').innerHTML = `
+          <ul>
+            <li>Penyetelan Mesin</li>
+            <li>Keahlian dalam merakit, memperbaiki, dan memelihara komponen motor balap</li>
+            <li>Kemampuan untuk menganalisis dan mendeteksi masalah pada mesin dan komponen motor dengan menggunakan alat diagnostik dan pengamatan visual</li>
+            <li>Pemahaman Elektronik Motor</li>
+          </ul>
+        `;
+        document.getElementById('content-title').innerHTML = 'Konten';
+        document.getElementById('social-title').innerHTML = 'Media Sosial';
+      } else if (language === 'japanese') {
+        document.getElementById('circle-name').innerHTML = 'Arya Zahran Ziduhu';
+        document.getElementById('about-title').innerHTML = 'Watashi ni tsuite';
+        document.getElementById('about-content').innerHTML = `
+          <p>Watashi wa jōnetsu-tekina kigyōkadeari, rēshinguwākushoppu no hokori takai ōnādesu. Jidōsha sangyō de no naganen no keiken o ikashite, rēshingu aikō-ka no tame ni saikō no sābisu to pafōmansu kōjō o teikyō suru koto ni sen'nen shite imasu. Watashi no wākushoppude wa, rēsu-yō no ōtobai o chūningu shite saidai no pafōmansu o hakki dekiru yō saiteki-ka shite imasu.</p>
+          <p Watashi no kōsoku mashin e no aijō wa yōshō-ki kara hajimari, jidōsha gyōkai de no yume o oimotomeru gendōryoku to narimashita. Watashi wa rēsu-yō ōtobai no mekanikusu ni fukai rikai o mochi, saishin no tekunorojī to gijutsu o kushi shite sugureta kekka o teikyō shite imasu.</p>
+          <p>Kokakumanzoku-do wa watashi no saiyūsenjikōdeari, kaku rēshinguchīmu no nīzu ni awaseta kobetsu no soryūshon o teikyō suru koto de kitai o koeru doryoku o shite imasu.</p>
+        `;
+        document.getElementById('skills-title').innerHTML = 'Sukiru';
+        document.getElementById('skills-content').innerHTML = `
+          <ul>
+            <li>Enjinchūningu</li>
+            <li>Rēshingubaiku no buhin no kumitate, shūri, oyobi mentenansu no senmon chishiki</li>
+            <li>Shindan tsūru to shikaku kansatsu o shiyō shite enjin ya baiku no buhin no mondai o bunseki oyobi kenshutsu suru nōryoku</li>
+            <li>Ōtobai no denshi kiki no rikai</li>
+          </ul>
+        `;
+        document.getElementById('content-title').innerHTML = 'Kontentsu';
+        document.getElementById('social-title').innerHTML = 'Sōsharumedia';
+      } else if (language === 'javanese') {
+        document.getElementById('circle-name').innerHTML = 'Arya Zahran Ziduhu';
+        document.getElementById('about-title').innerHTML = 'Tentang Aku';
+        document.getElementById('about-content').innerHTML = `
+          <p>Aku iku wong bisnis sing giat lan pemilik bangga saka bengkel balap. Kanti taun-taun pengalaman ing industri otomotif, aku ngabdani diri kanggo njaluk layanan paling apik lan peningkatan performa kanggo para pecinta balap. Ing bengkelku, aku mengkhusus ing tuning lan optimalisasi motor balap kanggo ngasilake performa maksimal ing jalur.</p>
+          <p>Cintaku karo mesin kang langkahe kenceng nggo bali kaula lan mndesak aku kanggo gawe impianku ing jagad otomotif. Aku duwe pangertenan sing banter babagan mekanik motor balap lan nggunakake teknologi lan teknik terkini kanggo ngasilake hasil kang apik banget.</p>
+          <p>Kepuasan pelanggan iku prioritas paling utama banget kanggo aku, lan aku njaluk luwih saka ekspektasi karo nyedhiyakake solusi kang dipersonalisasi kanggo kebutuhan tiap tim balap.</p>
+        `;
+        document.getElementById('skills-title').innerHTML = 'Keahlian';
+        document.getElementById('skills-content').innerHTML = `
+          <ul>
+            <li>Penyetelan Mesin</li>
+            <li>Kemampuan ngayomi, nggawe, lan ngempon komponen motor balap</li>
+            <li>Kemampuan kanggo nganalisis lan deteksi masalah ing mesin lan komponen motor nganggo piranti diagnostik lan observasi visual</li>
+            <li>Pemahaman Elektronik Motor</li>
+          </ul>
+        `;
+        document.getElementById('content-title').innerHTML = 'Konten';
+        document.getElementById('social-title').innerHTML = 'Media Sosial';
+      }
+    }
+  </script>
+
+  <div class="container">
+    <div class="circle">
+      <img src="foto sendiri.jpg" alt="Profile Picture">
+      <div id="circle-name" class="circle-text">Arya Zahran Ziduhu</div>
+    </div>
+  </div>
+
+
+
+  <div id="about" class="section">
+    <h2 id="about-title">About Me</h2>
+    <div id="about-content">
+      <p>I am a passionate entrepreneur and proud owner of a racing workshop. With years of experience in the automotive industry, I have dedicated myself to providing the best services and performance enhancements for racing enthusiasts. At my workshop, I specialize in tuning and optimizing race motorcycles to achieve maximum performance on the track.</p>
+      <p>My love for high-speed machines started at a young age and drove me to pursue my dreams in the automotive world. I have a deep understanding of race motorcycle mechanics and utilize cutting-edge technology and techniques to deliver outstanding results.</p>
+      <p>Customer satisfaction is my top priority, and I strive to exceed expectations by providing personalized solutions tailored to the needs of each racing team.</p>
+    </div>
+  </div>
+
+  <div id="skills" class="section">
+    <h2 id="skills-title">Skills</h2>
+    <div id="skills-content">
+      <ul>
+        <li>Engine Tuning</li>
+        <li>Expertise in assembling, repairing, and maintaining racing motorcycle components</li>
+        <li>Ability to analyze and detect issues in engines and motorcycle components using diagnostic tools and visual observation</li>
+        <li>Understanding of Motorcycle Electronics</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content" class="section">
+    <h2 id="content-title">Content</h2>
+    <video width="560" height="315" controls>
+      <source src="vidio .mp4" type="video/mp4">
+    </video> 
+  </div>
+  <div id="social" class="section">
+    <h2 id="social-title">Social Media</h2>
+    <a href="https://instagram.com/arya_z115?igshid=MzRlODBiNWFlZA=="><img src="logo.png" width="50" height="50"></a></li>
+    <a href="https://wa.me/+6289655541879"><img src="logo wa.png" width="50" height="50"></a></li>
+   
+  </div>
+</body>
+</html>
